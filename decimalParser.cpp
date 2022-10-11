@@ -18,11 +18,11 @@ float decimalParse(const std::string& input)
         {  
             nums.push_back(input[i]);
         }
-        else if (input[i] != ',' && input[i] != '.')
+        else if (input[i] != ',' && input[i] != '.') // make sure it's not a comma or decimal, just a suffix
         {
             suffix.push_back(input[i]);
         }
-        else if (input[i] == '.')
+        else if (input[i] == '.') // decimal gets it's own else if; comma gets ignored
         {
             decimalPoint = true;
             nums.push_back(input[i]);
@@ -43,7 +43,7 @@ float decimalParse(const std::string& input)
 
     if (suffixString == "k")
     {
-        multi = 3;
+        multi = 3; // number of 0's to add
     }
     else if (suffixString == "m")
     {
@@ -53,10 +53,18 @@ float decimalParse(const std::string& input)
     {
         multi = 9;
     }
+    else if (suffixString == "t")
+    {
+        multi = 12;
+    }
+    else if (suffixString == "qa")
+    {
+        multi = 15;
+    }
 
     for (int i = 0; i < multi; i++)
     {
-        num *= 10;
+        num *= 10; // adds the 0's by multiplying num by 10
     }
 
     return num;
