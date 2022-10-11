@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "parser.h" // my own header file; will include them
+// #include "parser.h" for using my own parse(); function
 
 int main()
 {
@@ -27,9 +27,9 @@ int main()
     std::cout << "\nPer Tick: ";
     std::cin >> perTickAbb;
 
-    perTick = parse(perTickAbb);
-    // if you want to use this without my parser, uncomment the following line:
-    // perTick = std::stol(perTickAbb);
+    // if you want to use this with my parser (you have to compile both at the same time), uncomment the following line:
+    // perTick = parse(perTickAbb);
+    perTick = std::stol(perTickAbb);
 
     switch (stat)
     {
