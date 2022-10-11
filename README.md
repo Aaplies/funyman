@@ -1,3 +1,3 @@
 # funyman
 a
-made you look
+This is a collaboration of dudewhatthehel1/
