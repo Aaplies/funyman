@@ -21,10 +21,12 @@ int main()
 
     int i = 0;
 
+    bool includeTpmGain = true; // change this to false for classic
+    
     while (i < totalMinutes)
     {
         current = current + tpm;
-        if (i % 240 == 239)
+        if (i % 240 == 239 && includeTpmGain == true)
         {
             tpm++;
         }
