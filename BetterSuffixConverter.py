@@ -1,4 +1,5 @@
 from __future__ import annotations
+import re
 
 def _converter(stat) ->  int | None:
     suffix_converter = {
