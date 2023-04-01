@@ -111,7 +111,7 @@ int main()
     std::cout << "100 tpm : " << add_commas(std::to_string(best[1])) << std::endl;
     std::cout << "1 day rush : " << add_commas(std::to_string(best[2])) << std::endl;
     std::cout << "1 week rush : " << add_commas(std::to_string(best[3])) << std::scientific;
-    std::cout << "\nYou will get " << add_commas(std::to_string(besttokens)) << " tokens with " << add_commas(std::to_string(besttpm + int(days * 6))) << " TPM.\n";
+    std::cout << "\nYou will get ~" << add_commas(std::to_string(besttokens)) << " tokens with " << add_commas(std::to_string(besttpm + int(days * 6))) << " TPM.\n";
     std::cout << "You will have " << budget - bestspent << " R$ left you p2w bozo\n\n";
     std::cout << add_commas(std::to_string(iterations)) << " possible combinations considered.\nAlways be sure to buy TPM before Token Rush.\n";
 }
