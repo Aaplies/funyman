@@ -20,6 +20,22 @@ std::string add_commas(const std::string& input)
    return s;
 }
 
+long simulate_tokens(const long& tokens, const long& tpm, const float& days)
+{
+    long simulated_tokens, simulated_tpm;
+    simulated_tpm = tpm;
+    simulated_tokens = tokens;
+    for (int i = 1; i <= days * 1440; i++)
+    {
+        if (i % 240 == 0)
+        {
+            simulated_tpm++;
+        }
+        simulated_tokens += simulated_tpm;
+    }
+    return simulated_tokens;
+}
+
 int main()
 {
     std::vector<int> best = {0, 0, 0, 0};
@@ -65,7 +81,7 @@ int main()
                     iterations++;
                     if (iterations % length == 0)
                     {
-                        if (!((iterations / length) * 10 >= 100) && budget >= 1000000)
+                        if (!((iterations / length) * 10 >= 100) && budget >= 100000)
                         {
                             std::cout << "You're " << (iterations / length) * 10 << "% there!\n";
                         }
@@ -93,9 +109,9 @@ int main()
                     tokens += tpm * 10080 * week;
                     tokens += tpm * 1440 * day;
                     // now test if better than before
-                    if ((tpm * days * 1440) + tokens > besttokens)
+                    if (simulate_tokens(tokens, tpm, days) > besttokens)
                     {
-                        besttokens = (tpm * days * 1440) + tokens;
+                        besttokens = simulate_tokens(tokens, tpm, days);
                         bestspent = spent;
                         besttpm = tpm;
                         best[0] = maxtpm;
