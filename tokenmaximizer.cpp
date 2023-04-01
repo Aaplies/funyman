@@ -123,10 +123,10 @@ int main()
             }
         }
     }
-    std::cout << "\n\n300 tpm : " << add_commas(std::to_string(best[0])) << std::endl;
-    std::cout << "100 tpm : " << add_commas(std::to_string(best[1])) << std::endl;
-    std::cout << "1 day rush : " << add_commas(std::to_string(best[2])) << std::endl;
-    std::cout << "1 week rush : " << add_commas(std::to_string(best[3])) << std::scientific;
+    std::cout << "\n\n300 tpm : " << add_commas(std::to_string(best[0])) << " (" << add_commas(std::to_string(best[0] * 4500)) << " R$)" << std::endl;
+    std::cout << "100 tpm : " << add_commas(std::to_string(best[1])) << " (" << add_commas(std::to_string(best[1] * 1620)) << " R$)" << std::endl;
+    std::cout << "1 day rush : " << add_commas(std::to_string(best[2])) << " (" << add_commas(std::to_string(best[2] * 99)) << " R$)" <<  std::endl;
+    std::cout << "1 week rush : " << add_commas(std::to_string(best[3])) << " (" << add_commas(std::to_string(best[3] * 499)) << " R$)" << std::scientific;
     std::cout << "\nYou will get ~" << add_commas(std::to_string(besttokens)) << " tokens with " << add_commas(std::to_string(besttpm + int(days * 6))) << " TPM.\n";
     std::cout << "You will have " << budget - bestspent << " R$ left you p2w bozo\n\n";
     std::cout << add_commas(std::to_string(iterations)) << " possible combinations considered.\nAlways be sure to buy TPM before Token Rush.\n";
