@@ -50,9 +50,9 @@ int main()
     std::cin >> utpm;
     std::cout << "What's your budget: ";
     std::cin >> budget;
-    maxtpmlength = (budget / 4500);
+    maxtpmlength = int(budget / 4500) + 1;
     mintpmlength = 10;
-    weeklength = (budget / 499);
+    weeklength = int(budget / 499) + 1;
     daylength = 10;
     long length = maxtpmlength;
     length *= mintpmlength;
@@ -78,7 +78,7 @@ int main()
             {
                 for (int day = 0; day <= daylength; day++)
                 {
-                    if (besttokens - oldbest == 0 && day != 0)
+                    if (besttokens - oldbest == 0 && day != 0 && budget > 1000)
                     {
                         continue;
                     }
