@@ -78,11 +78,11 @@ int main()
             {
                 for (int day = 0; day <= daylength; day++)
                 {
-                    iterations++;
                     if (besttokens - oldbest == 0 && day != 0)
                     {
                         continue;
                     }
+                    iterations++;
                     if (iterations % length == 0)
                     {
                         if (!((iterations / length) * 5 >= 100) && days >= 1 && budget >= 100000)
