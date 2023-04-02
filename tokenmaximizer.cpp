@@ -39,7 +39,7 @@ long simulate_tokens(const long& tokens, const long& tpm, const float& days)
 int main()
 {
     std::vector<int> best = {0, 0, 0, 0};
-    long utokens, tokens, utpm, tpm, budget, spent, besttokens, iterations, bestspent, besttpm = 0;
+    long utokens, tokens, utpm, tpm, budget, spent, besttokens, iterations, bestspent, besttpm, oldbest, betteroldbest = 0;
     int maxtpmlength, mintpmlength, weeklength, daylength; // increase if you reach a cap, will make code slower
     float days = 0;
     std::cout << "What time frame (days): ";
@@ -58,7 +58,7 @@ int main()
     length *= mintpmlength;
     length *= weeklength;
     length *= daylength;
-    length /= 10;
+    length /= 20;
     // days = (days == 0) ? 1 : days;
     if (budget >= 1000000)
     {
@@ -79,11 +79,16 @@ int main()
                 for (int day = 0; day <= daylength; day++)
                 {
                     iterations++;
+                    if (besttokens - oldbest == 0 && day != 0)
+                    {
+                        continue;
+                    }
                     if (iterations % length == 0)
                     {
-                        if (!((iterations / length) * 10 >= 100) && budget >= 100000)
+                        if (!((iterations / length) * 5 >= 100) && days >= 1 && budget >= 100000)
                         {
-                            std::cout << "You're " << (iterations / length) * 10 << "% there!\n";
+                            std::cout << "You're " << (iterations / length) * 5 << "% there! (" << add_commas(std::to_string(besttokens - oldbest)) << " improvement)\n";
+                            oldbest = besttokens;
                         }
                     }
                     spent = maxtpm * 4500;
