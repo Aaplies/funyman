@@ -25,35 +25,41 @@ int main()
                     {
                         for (int t100 = 0; t100 <= 3; t100++)
                         {
-                            iterations++;
-                            spent = mTPM * 4500;
-                            spent += MTPM * 30000;
-                            spent += t100 * 1620;
-                            spent += month * 1499;
-                            spent += year * 9999;
-                            spent += week * 499;
-                            if (spent > budget)
+                            for (int day = 0; day <= 6; day++)
                             {
-                                continue;
-                            }
-                            tpm = usertpm;
-                            tpm += mTPM * 300;
-                            tpm += MTPM * 3000;
-                            tpm += t100 * 100;
-                            tokens = 0;
-                            tokens += tpm * week * 10080;
-                            tokens += tpm * month * 43800;
-                            tokens += tpm * year * 525600;
-                            if (tokens > besttokens)
-                            {
-                                besttokens = tokens;
-                                bestspent = spent;
-                                best[0] = mTPM;
-                                best[1] = MTPM;
-                                best[2] = week;
-                                best[3] = month;
-                                best[4] = year;
-                                best[5] = t100;
+                                iterations++;
+                                spent = mTPM * 4500;
+                                spent += MTPM * 30000;
+                                spent += t100 * 1620;
+                                spent += month * 1499;
+                                spent += year * 9999;
+                                spent += week * 499;
+                                spent += day * 99;
+                                if (spent > budget)
+                                {
+                                    continue;
+                                }
+                                tpm = usertpm;
+                                tpm += mTPM * 300;
+                                tpm += MTPM * 3000;
+                                tpm += t100 * 100;
+                                tokens = 0;
+                                tokens += tpm * week * 10080;
+                                tokens += tpm * month * 43800;
+                                tokens += tpm * year * 525600;
+                                tokens += tpm * day * 1440;
+                                if (tokens > besttokens)
+                                {
+                                    besttokens = tokens;
+                                    bestspent = spent;
+                                    best[0] = mTPM;
+                                    best[1] = MTPM;
+                                    best[2] = week;
+                                    best[3] = month;
+                                    best[4] = year;
+                                    best[5] = t100;
+                                    best[6] = day;
+                                }
                             }
                         }
                     }
@@ -64,7 +70,8 @@ int main()
     std::cout << "\n100 tpm : " << best[5] << "\n";
     std::cout << "300 tpm : " << best[0] << "\n";
     std::cout << "3000 tpm : " << best[1] << "\n";
-    std::cout << "\n1 week rush : " << best[2] << "\n";
+    std::cout << "\n1 day rush : " << best[6] << "\n";
+    std::cout << "1 week rush : " << best[2] << "\n";
     std::cout << "1 month rush : " << best[3] << "\n";
     std::cout << "1 year rush : " << best[4] << "\n";
     std::cout << float(besttokens) << " tokens and " << budget - bestspent << " R$ left\n";
