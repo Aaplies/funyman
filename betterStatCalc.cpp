@@ -15,14 +15,11 @@ int main()
     ticks = ((goal * pow(10, goala)) - (current * pow(10, currenta)));
     ticks /= (apt * pow(10, apta));
     seconds = ticks * tsp;
-    seconds /= 86400;
-    std::cout << floor(seconds/365) << " year(s) ";
-    std::cout << int(floor(seconds)) % 365 << " days ";
-    seconds = (seconds - floor(seconds)) * 24;
-    std::cout << floor(seconds) << " hours ";
-    seconds = (seconds - floor(seconds)) * 60;
-    std::cout << floor(seconds) << " minutes ";
-    seconds = (seconds - floor(seconds)) * 60;
-    std::cout << ceil(seconds) << " seconds.";
+    seconds = ceil(seconds);
+    std::cout << floor(seconds/31536000) << " year(s) ";
+    std::cout << int(floor(seconds/86400)) % 365 << " day(s) ";
+    std::cout << int(floor(seconds/3600)) % 24 << " hours ";
+    std::cout << int(floor(seconds/60)) % 60 << " minutes ";
+    std::cout << int(seconds) % 60 << " seconds.";
     return 0;
 }
