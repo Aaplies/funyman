@@ -62,13 +62,12 @@ int main()
     // days = (days == 0) ? 1 : days;
     if (budget >= 1000000)
     {
-        std::cout << "\nAny number between 1-5 million will take a while. \nPlease do not complain about how slow it takes to do 10 million.\n";
-        std::cout << "Progress messages turned on cause this'll take longer than usual\n\n";
+        std::cout << "\nAny number between 1-5 million will take a while. \nPlease do not complain about how slow it takes to do 10 million.\n\n";
     }
-    if (budget >= 10000000)
+    if (budget > 10000000)
     {
         std::cout << "\nTBH just be f2p (anything this big will break the code)\n";
-        return 1;
+        return 0;
     }
     for (int maxtpm = 0; maxtpm <= maxtpmlength; maxtpm++)
     {
