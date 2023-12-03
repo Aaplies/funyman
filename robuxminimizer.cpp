@@ -1,7 +1,7 @@
 #include <iostream> // you may see a version of this in peace's bot, this is the original. They may or may not decide to change things with this
 #include <vector> //   but at this point it ALWAYS goes over the goal
 
-int main()
+int main() // this uses HELLA nested for loops; sorry
 {
     double token_goal = 0.0, user_tpm = 0.0, tpm = 0.0, spent = 0.0, tokens = 0.0, bestspent = 0.0, closest = 0.0;
     std::vector<int> best_set = {0, 0, 0, 0, 0, 0, 0};
@@ -46,7 +46,7 @@ int main()
                                 {
                                     continue;
                                 }
-                                else if (tokens - token_goal < closest)
+                                else if (spent < bestspent || bestspent == 0)
                                 {
                                     closest = tokens - token_goal;
                                     // std::cout << closest << "\n";
@@ -66,7 +66,7 @@ int main()
             }
         }
     }
-    std::cout << "100 TPM: " << best_set[5] << "\n";
+    std::cout << "\n100 TPM: " << best_set[5] << "\n";
     std::cout << "300 TPM: " << best_set[0] << "\n";
     std::cout << "3000 TPM: " << best_set[1] << "\n";
     std::cout << "\n1 day rush: " << best_set[6] << "\n";
