@@ -42,11 +42,11 @@ int main()
     long utokens, tokens, utpm, tpm, budget, spent, besttokens, iterations, bestspent, besttpm, oldbest, betteroldbest = 0;
     int maxtpmlength, mintpmlength, weeklength, daylength; // increase if you reach a cap, will make code slower
     float days = 0;
-    std::cout << "What time frame (days): ";
+    std::cout << "What time frame (days): "; // e.g. how long you're willing to wait vs. just buying the tokens immediately
     std::cin >> days;
-    std::cout << "How many tokens: ";
+    std::cout << "How many tokens do you have: ";
     std::cin >> utokens;
-    std::cout << "What tpm: ";
+    std::cout << "What tpm do you have: ";
     std::cin >> utpm;
     std::cout << "What's your budget: ";
     std::cin >> budget;
