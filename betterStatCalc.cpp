@@ -3,6 +3,7 @@
 
 int main()
 {
+    const float DAYS_PER_YEAR = 365.2422; // Recommended; other good values are 365, 365.25 (accounts for leap years), and 365.24 (slightly more accurate)
     double goal, current, apt, goala, currenta, apta, ticks, seconds, tsp = 0;
     std::cout << "Goal & Exponent: ";
     std::cin >> goal >> goala;
@@ -30,7 +31,7 @@ int main()
     ticks *= tsp;
     seconds += ticks;
     seconds = ceil(seconds);
-    std::cout << floor(seconds/31536000) << " year(s) ";
+    std::cout << floor(seconds/(DAYS_PER_YEAR * 86400)) << " year(s) ";
     std::cout << int(floor(seconds/86400)) % 365 << " day(s) ";
     std::cout << int(floor(seconds/3600)) % 24 << " hours ";
     std::cout << int(floor(seconds/60)) % 60 << " minutes ";
